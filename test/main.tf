@@ -143,6 +143,6 @@ resource "azurerm_linux_virtual_machine" "vm_2" {
     name                 = "anup-osdisk-2"
   }
 
-  computer_name = "anupvm2"
+  computer_name = "test1"
 }
 

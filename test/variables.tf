@@ -1,9 +1,9 @@
 variable "resource_group_name" {
-  default = "anup-vm-rg"
+  default = "test-vm"
 }
 
 variable "location" {
-  default = "East US"
+  default = "Central India"
 }
 
 variable "admin_username" {
@@ -18,6 +18,10 @@ variable "vm_size" {
   default = "Standard_B2ms"
 }
 
+variable "public_ip_sku" {
+  default = "Standard"
+}
+
 variable "vnet_name" {
   default = "anup-vnet"
 }
@@ -28,9 +32,5 @@ variable "subnet_name" {
 
 variable "nsg_name" {
   default = "anup-nsg"
-}
-
-variable "public_ip_sku" {
-  default = "Standard"
 }
 
