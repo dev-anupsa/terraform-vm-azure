@@ -8,25 +8,31 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/dev-anupsa/terraform-vm-azure.git'
+                git branch: 'main', url: 'https://github.com/dev-anupsa/terraform-vm-azure.git'
             }
         }
 
         stage('Init') {
             steps {
-                sh 'terraform init'
+                dir('test') {
+                    sh 'terraform init'
+                }
             }
         }
 
         stage('Plan') {
             steps {
-                sh 'terraform plan'
+                dir('test') {
+                    sh 'terraform plan'
+                }
             }
         }
 
         stage('Apply') {
             steps {
-                sh 'terraform apply -auto-approve'
+                dir('test') {
+                    sh 'terraform apply -auto-approve'
+                }
             }
         }
     }
