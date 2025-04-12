@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+
+    environment {
+        TF_VAR_env = "test"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/dev-anupsa/terraform-vm-azure.git'
+            }
+        }
+
+        stage('Init') {
+            steps {
+                sh 'terraform init'
+            }
+        }
+
+        stage('Plan') {
+            steps {
+                sh 'terraform plan'
+            }
+        }
+
+        stage('Apply') {
+            steps {
+                sh 'terraform apply -auto-approve'
+            }
+        }
+    }
+}
+
