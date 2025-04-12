@@ -1,20 +1,20 @@
 variable "client_id" {
-  type = string
-  default = "" # optional, recommend using env var
+  type    = string
+  default = "" # Leave empty to use from environment variables or credentials in Jenkins
 }
 
 variable "client_secret" {
-  type = string
+  type    = string
   default = ""
 }
 
 variable "subscription_id" {
-  type = string
+  type    = string
   default = ""
 }
 
 variable "tenant_id" {
-  type = string
+  type    = string
   default = ""
 }
 
@@ -31,7 +31,8 @@ variable "admin_username" {
 }
 
 variable "ssh_public_key_path" {
-  default = "~/.ssh/test-key.pub"
+  # Make sure the public key is part of the build context (present in repo or inside Jenkins workspace)
+  default = "keys/test-key.pub"
 }
 
 variable "vm_size" {
